@@ -1,0 +1,194 @@
+/* Reset Styles (Use a Reset file like Josh W Comeau's or Meyer’s Reset) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400&display=swap');
+
+/* Global Styles */
+:root {
+  --primary-accent-color: #FF5733; /* Example primary accent color */
+  --background-color: #f4f4f4;
+  --heading-color: #333;
+  --link-color: #0056b3;
+  --link-hover-color: #FF5733;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: var(--background-color);
+  color: var(--heading-color);
+}
+
+/* Skip Link Styles */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  text-decoration: none;
+  z-index: 1000;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+/* Header and Navigation */
+header {
+  background-color: #222;
+  padding: 20px 0;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--link-hover-color);
+  transform: scale(1.1);
+}
+
+.nav-link:visited {
+  color: #bbb;
+}
+
+.nav-link:focus {
+  outline: 2px solid var(--primary-accent-color);
+}
+
+/* Hero Section */
+.hero {
+  background-image: url('images/hero-image.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  animation: zoom 30s infinite;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.hero-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3em;
+  color: white;
+  text-align: center;
+  position: relative;
+  animation: colorChange 5s infinite;
+}
+
+@keyframes colorChange {
+  0% { color: var(--primary-accent-color); }
+  50% { color: #00BFFF; }
+  100% { color: var(--primary-accent-color); }
+}
+
+.hero-text span.accent::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  background-color: var(--primary-accent-color);
+  top: 100%;
+  left: 0;
+}
+
+/* Solar System Section */
+.solar-system {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 40px;
+}
+
+.planet {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 10px;
+}
+
+.planet img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.planet p {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Footer Section */
+footer {
+  background-color: #222;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .solar-system {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    height: 60vh;
+  }
+}
+
+@media (max-width: 500px) {
+  .solar-system {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero {
+    height: 50vh;
+  }
+
+  .hero-text h1 {
+    font-size: 2em;
+  }
+
+  .planet img {
+    height: 150px;
+  }
+}
